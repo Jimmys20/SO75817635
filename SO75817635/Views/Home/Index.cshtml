@@ -1,9 +1,16 @@
-﻿@{
+﻿@model EmployeeInfo
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@Html.TextAreaFor(model => model.SignatureField, new { @class = "form-control editorHtml" })
 
+@section Scripts {
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinyMCE.init({
+            mode: "specific_textareas",
+            selector: "#SignatureField",
+        });
+    </script>
+}
